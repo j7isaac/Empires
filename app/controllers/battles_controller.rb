@@ -1,7 +1,5 @@
 class BattlesController < ApplicationController
 
-  helper_method :battle
-
   def new
     @battle = Battle.new
   end
@@ -17,10 +15,13 @@ class BattlesController < ApplicationController
 
   private
 
+  helper_method :battle
+
   def battle
     @battle ||= Battle.where(id: params[:id]).last
   end
 
   def battle_params
     params.require(:battle).permit(:army_a, :army_b)
+  end
 end
