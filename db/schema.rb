@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160408072907) do
+ActiveRecord::Schema.define(version: 20160408164637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "archers", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "armies", force: true do |t|
+    t.integer  "infantry"
+    t.integer  "archers"
+    t.integer  "knights"
+    t.integer  "spending_balance", default: 100000
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "battles", force: true do |t|
     t.integer  "surviving_army"
@@ -26,5 +40,20 @@ ActiveRecord::Schema.define(version: 20160408072907) do
 
   add_index "battles", ["army_a"], name: "index_battles_on_army_a", using: :btree
   add_index "battles", ["army_b"], name: "index_battles_on_army_b", using: :btree
+
+  create_table "foot_soldiers", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "knights", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "soldiers", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
