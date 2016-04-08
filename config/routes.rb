@@ -1,7 +1,8 @@
 Empires::Application.routes.draw do
-  root 'battles#new'
+  root 'armies#new'
 
   resources :battles, only: [:new, :create, :show]
+  resources :armies, only: [:new, :create, :update, :show]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
