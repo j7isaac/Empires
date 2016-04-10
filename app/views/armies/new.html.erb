@@ -9,6 +9,7 @@
     <%= f.number_field :archers, in: 1..2500, step: 1 %>
     <%= f.label :knights %>
     <%= f.number_field :knights, in: 1..500, step: 1 %>
-    <%= f.submit 'Save' %>
+    <%= f.submit 'Save and Create New Army', class: 'btn' %>
   <% end %>
+  <%= link_to "Battle Your Army", root_path, class: "btn" %>
 </div>
