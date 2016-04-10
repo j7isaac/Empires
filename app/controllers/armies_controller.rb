@@ -8,7 +8,7 @@ class ArmiesController < ApplicationController
 
   def create
     @army = Army.create(army_params)
-    render :action => 'new'
+    redirect_to new_army_path
 
   end
 
