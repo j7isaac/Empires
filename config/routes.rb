@@ -1,5 +1,5 @@
 Empires::Application.routes.draw do
-  root 'armies#new'
+  root 'battles#new'
 
   resources :battles, only: [:new, :create, :show]
   resources :armies, only: [:new, :create, :update, :show]

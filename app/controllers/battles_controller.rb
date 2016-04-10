@@ -1,7 +1,11 @@
 class BattlesController < ApplicationController
 
+  helper_method :battle
+
   def new
     @battle = Battle.new
+    @armies = []
+    Army.all.each {|army| @armies << army.name}
   end
 
   def create
@@ -14,8 +18,6 @@ class BattlesController < ApplicationController
   end
 
   private
-
-  helper_method :battle
 
   def battle
     @battle ||= Battle.where(id: params[:id]).last
