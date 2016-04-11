@@ -1,6 +1,6 @@
 <h1>Battles</h1>
 <%= form_for @battle do |f| %>
-  <%= f.select :army_a, @armies, :prompt => 'Select One' %>
-  <%= f.select :army_b, @armies, :prompt => 'Select One' %>
+  <%= f.select :army_a, @army_names, :prompt => 'Select One' %>
+  <%= f.select :army_a, @army_names, :prompt => 'Select One' %>
   <%= f.submit %>
 <% end %>
