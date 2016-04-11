@@ -1,2 +1,2 @@
-class FootSoldier < ActiveRecord::Base
+class FootSoldier < Soldier
 end

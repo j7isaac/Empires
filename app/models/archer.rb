@@ -1,2 +1,2 @@
-class Archer < ActiveRecord::Base
+class Archer < Soldier
 end

@@ -1,2 +1,2 @@
-class Knight < ActiveRecord::Base
+class Knight < Soldier
 end
