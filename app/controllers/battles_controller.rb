@@ -4,7 +4,6 @@ class BattlesController < ApplicationController
 
   def new
     @battle = Battle.new
-    @army_names = Army.all.collect {|a| a.name}
   end
 
   def create
