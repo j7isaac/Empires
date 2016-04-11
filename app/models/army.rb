@@ -1,6 +1,12 @@
 class Army < ActiveRecord::Base
   has_many :soldiers
+  belongs_to :battle
   after_create :build_army!
+
+  def army_attack(target)
+    soldiers_remaining.sample.attack(target)
+  end
+
 
   def build_army!
     infantry.times do
@@ -8,8 +14,8 @@ class Army < ActiveRecord::Base
         army_id:       id,
         cost:          15,
         health:       100,
-        attack_damage: 20,
-        defense:       30,
+        attack_damage: 75,
+        defense:       40,
         luck:          15
       )
     end
@@ -18,9 +24,9 @@ class Army < ActiveRecord::Base
         army_id:       id,
         cost:          60,
         health:       100,
-        attack_damage: 12,
-        defense:       15,
-        luck:          22
+        attack_damage: 40,
+        defense:       20,
+        luck:          50
       )
     end
     knights.times do
@@ -28,7 +34,7 @@ class Army < ActiveRecord::Base
         army_id:       id,
         cost:         250,
         health:       100,
-        attack_damage: 75,
+        attack_damage:100,
         defense:       60,
         luck:          40
       )

@@ -1,6 +1,6 @@
 <h1>Battles</h1>
 <%= form_for @battle do |f| %>
-  <%= collection_select :battle, :army_a, Army.all, :id, :name, :prompt => 'Select One' %>
-  <%= collection_select :battle, :army_b, Army.all, :id, :name, :prompt => 'Select One' %>
+  <%= f.collection_select :army_a, Army.all, :id, :name, :prompt => 'Select One' %>
+  <%= f.collection_select :army_b, Army.all, :id, :name, :prompt => 'Select One' %>
   <%= f.submit %>
 <% end %>

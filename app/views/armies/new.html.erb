@@ -1,5 +1,5 @@
 <div>
-  <h1>Create a New Battle</h1>
+  <h1>Create a New Army</h1>
   <%= form_for Army.new do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
@@ -11,5 +11,5 @@
     <%= f.number_field :knights, in: 1..500, step: 1 %>
     <%= f.submit 'Save and Create New Army', class: 'btn' %>
   <% end %>
-  <%= link_to "Battle Your Army", root_path, class: "btn" %>
+  <%= link_to "New Battle", root_path, class: "btn" %>
 </div>

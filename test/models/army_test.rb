@@ -8,9 +8,9 @@ class ArmyTest < ActiveSupport::TestCase
 
   test 'shoud build the appropriate number of soldiers' do
     @army1.build_army!
-    assert_equal 1, FootSoldier.count, 'Should be 1'
-    assert_equal 2, Archer.count, 'Should be 2'
-    assert_equal 3, Knight.count, 'Should be 3'
+    assert_equal 1, FootSoldier.where(id: @army1.id).count, 'Should be 1'
+    assert_equal 2, Archer.where(id: @army1.id).count, 'Should be 2'
+    assert_equal 3, Knight.where(id: @army1.id).count, 'Should be 3'
   end
 
   test "should find surviving soldiers in given army" do

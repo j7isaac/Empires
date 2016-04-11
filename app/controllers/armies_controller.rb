@@ -13,7 +13,7 @@ class ArmiesController < ApplicationController
   end
 
   def show
-    @battle = Army.find(params[:id])
+    @army = Army.find(params[:id])
   end
 
   private
