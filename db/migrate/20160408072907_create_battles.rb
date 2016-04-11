@@ -4,6 +4,7 @@ class CreateBattles < ActiveRecord::Migration
       t.integer :surviving_army
       t.integer :army_a
       t.integer :army_b
+      t.integer :attack_initiator
       t.timestamps
     end
     add_index :battles, :army_a

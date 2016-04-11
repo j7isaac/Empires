@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160411084451) do
+ActiveRecord::Schema.define(version: 20160411104535) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,9 +32,9 @@ ActiveRecord::Schema.define(version: 20160411084451) do
   end
 
   create_table "battles", force: true do |t|
-    t.integer  "surviving_army"
-    t.string   "army_a"
-    t.string   "army_b"
+    t.integer  "army_a"
+    t.integer  "army_b"
+    t.integer  "attack_initiator"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
