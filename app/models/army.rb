@@ -4,6 +4,7 @@ class Army < ActiveRecord::Base
   after_create :build_army!
 
   def army_attack(target)
+    return if soldiers_remaining.nil? or target.nil?
     soldiers_remaining.sample.attack(target)
   end
 
@@ -40,6 +41,10 @@ class Army < ActiveRecord::Base
       )
     end
 
+  end
+
+  def soldier_count
+    soldiers_remaining.count
   end
 
   def soldiers_remaining

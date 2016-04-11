@@ -9,12 +9,16 @@ class Battle < ActiveRecord::Base
       @a_army.army_attack(@b_army.soldiers_remaining)
       @b_army.army_attack(@a_army.soldiers_remaining)
     end
-    victor(@a_army.soldiers_remaining, @b_army.soldiers_remaining)
+    @victor = surviving_army(@a_army.soldier_count, @b_army.soldier_count)
   end
 
-  def victor(a, b)
-    "#{@a_army.name} is victorious!" if a.count > b.count
-    "#{@b_army.name} is victorious!" if b.count > a.count
+  def surviving_army(a, b)
+    "#{@a_army.name} army is victorious!" if a > b
+    "#{@b_army.name} army is victorious!" if b > a
+  end
+
+  def battle_details(army)
+    "#{army} details here"
   end
 
 
