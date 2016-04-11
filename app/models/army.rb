@@ -36,4 +36,8 @@ class Army < ActiveRecord::Base
 
   end
 
+  def soldiers_remaining
+    soldiers.where("health > '0'")
+  end
+
 end
