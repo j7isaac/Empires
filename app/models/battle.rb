@@ -3,18 +3,18 @@ class Battle < ActiveRecord::Base
   after_create :initiate_battle!
 
   def initiate_battle!
-    a_army = Army.find {|a| a.id == army_a }
-    b_army = Army.find {|a| a.id == army_b }
-    while a_army.soldiers_remaining.present? && b_army.soldiers_remaining.present? do
-      a_army.army_attack(b_army.soldiers_remaining)
-      b_army.army_attack(a_army.soldiers_remaining)
+    @a_army = Army.find {|a| a.id == army_a }
+    @b_army = Army.find {|a| a.id == army_b }
+    while @a_army.soldiers_remaining.present? && @b_army.soldiers_remaining.present? do
+      @a_army.army_attack(@b_army.soldiers_remaining)
+      @b_army.army_attack(@a_army.soldiers_remaining)
     end
-    victor(a_army.soldiers_remaining, b_army.soldiers_remaining)
+    victor(@a_army.soldiers_remaining, @b_army.soldiers_remaining)
   end
 
   def victor(a, b)
-    "#{army_a.name} is victorious!" if a.count > b.count
-    "#{army_b.name} is victorious!" if b.count > a.count
+    "#{@a_army.name} is victorious!" if a.count > b.count
+    "#{@b_army.name} is victorious!" if b.count > a.count
   end
 
 
