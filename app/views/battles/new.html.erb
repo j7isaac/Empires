@@ -4,3 +4,4 @@
   <%= f.collection_select :army_b, Army.all, :id, :name, :prompt => 'Select One' %>
   <%= f.submit %>
 <% end %>
+<%= link_to "New Army", new_army_path, class: "btn" %>
