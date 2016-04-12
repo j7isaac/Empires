@@ -1,15 +1,27 @@
-<div>
-  <h1>Create a New Army</h1>
-  <%= form_for Army.new do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <%= f.label :infantry %>
-    <%= f.number_field :infantry, in: 1..10000, step: 1 %>
-    <%= f.label :archers %>
-    <%= f.number_field :archers, in: 1..2500, step: 1 %>
-    <%= f.label :knights %>
-    <%= f.number_field :knights, in: 1..500, step: 1 %>
-    <%= f.submit 'Save and Create New Army', class: 'btn' %>
-  <% end %>
-  <%= link_to "New Battle", root_path, class: "btn" %>
+<div class="flex-container">
+  <h1>Create a New Army</h1> 
+  <div class="box">
+    <%= form_for Army.new do |f| %>
+      <div class='box-item'>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+      <div class='box-item'>
+        <%= f.label :infantry %>
+        <%= f.number_field :infantry, in: 1..10000, step: 1 %>
+      </div>
+      <div class='box-item'>
+        <%= f.label :archers %>
+        <%= f.number_field :archers, in: 1..2500, step: 1 %>
+      </div>
+      <div class='box-item'>
+        <%= f.label :knights %>
+        <%= f.number_field :knights, in: 1..500, step: 1 %>
+      </div>
+      <div class='box-item'>
+        <%= f.submit 'Save and Create New Army', class: 'btn' %>
+        <%= link_to "New Battle", root_path, class: "btn" %>
+      </div>
+    <% end %>
+  </div>
 </div>

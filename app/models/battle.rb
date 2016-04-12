@@ -9,7 +9,6 @@ class Battle < ActiveRecord::Base
       @a_army.army_attack(@b_army.soldiers_remaining)
       @b_army.army_attack(@a_army.soldiers_remaining)
     end
-    "#{surviving_army.name} army is victorious!"
   end
 
   def surviving_army
