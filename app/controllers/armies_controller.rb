@@ -9,7 +9,7 @@ class ArmiesController < ApplicationController
   def create
     @army = Army.create(army_params)
     redirect_to new_army_path
-
+    flash[:notice] = "army successfully saved"
   end
 
   def show

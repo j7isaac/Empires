@@ -1,6 +1,9 @@
 <div class="flex-container">
   <h1>New Army</h1> 
   <div class="box">
+    <% if notice.present? %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
     <%= form_for Army.new do |f| %>
       <div class='box-item'>
         <%= f.label :name %>
