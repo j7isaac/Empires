@@ -1,7 +1,13 @@
-<h1><%= "#{@battle.surviving_army.name} army is victorious!" %></h1>
-<p><%= "#{@battle.surviving_army.name} army remained with:"%></p>
-<p><%= "#{@battle.surviving_army.infantry_remaining} out of #{@battle.surviving_army.infantry} Infantry units remaining"%></p>
-<p><%= "#{@battle.surviving_army.archers_remaining} out of #{@battle.surviving_army.archers} Archer units remaining"%></p>
-<p><%= "#{@battle.surviving_army.knights_remaining} out of #{@battle.surviving_army.knights} Knight units remaining"%></p>
-<p><%= "#{@battle.surviving_army.damage_percentage}% Damage Sustained"%></p>
-<%= link_to "New Battle", root_path, class: "btn" %>
+<div class="flex-container">  
+  <h1><%= "#{@battle.surviving_army.name} is Victorious!" %></h1>
+  <div class='box2'>
+    <h3>Battle Report</h3>
+    <div class='box-item'><hr></div>
+    <p><%= "#{@battle.surviving_army.name} army remained with:"%></p>
+    <p><%= "#{@battle.surviving_army.infantry_remaining} out of #{@battle.surviving_army.infantry} Infantry units remaining"%></p>
+    <p><%= "#{@battle.surviving_army.archers_remaining} out of #{@battle.surviving_army.archers} Archer units remaining"%></p>
+    <p><%= "#{@battle.surviving_army.knights_remaining} out of #{@battle.surviving_army.knights} Knight units remaining"%></p>
+    <p><%= "#{@battle.surviving_army.damage_percentage}% Damage Sustained"%></p>
+    <%= link_to "New Battle", root_path, class: "btn" %>
+  </div>
+</div>

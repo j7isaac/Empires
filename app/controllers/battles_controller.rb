@@ -8,7 +8,7 @@ class BattlesController < ApplicationController
 
   def create
     @battle = Battle.create(battle_params)
-    redirect_to @battle
+    redirect_to battle
   end
 
   def show

@@ -16,8 +16,9 @@ class Army < ActiveRecord::Base
   end
 
   def army_attack(target)
-    return if soldiers_remaining.nil? or target.nil?
-    soldiers_remaining.sample.attack(target)
+    unless soldiers_remaining.empty? or target.empty?
+      soldiers_remaining.sample.attack(target)
+    end
   end
 
   def damage_percentage
@@ -62,7 +63,8 @@ class Army < ActiveRecord::Base
 
   end
 
-  def percent(a, b)
+  def reset_health
+    soldiers.each {|soldier| soldier.update_attributes(health: 100)}
   end
 
   def soldier_count

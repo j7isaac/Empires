@@ -5,7 +5,7 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
-  infantry: 1
+  infantry: 4
   archers: 2
   knights: 3
   spending_balance: 100000
