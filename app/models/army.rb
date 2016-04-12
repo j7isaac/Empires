@@ -28,13 +28,6 @@ class Army < ActiveRecord::Base
     ((p damage.to_f / (soldiers.count * 100)) * 100.0).to_i
   end
 
-  def details
-    "#{name} army remained with:"
-    "#{infantry} Infantry Units"
-    "#{archers} Archers"
-    "#{knights} Knights"
-  end
-
   def build_army!
     infantry.times do
       FootSoldier.create(

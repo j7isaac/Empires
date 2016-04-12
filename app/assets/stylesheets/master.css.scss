@@ -1,0 +1,115 @@
+@import url(https://fonts.googleapis.com/css?family=Cinzel);
+
+body {
+  background: url("e.jpg") no-repeat fixed #241f19;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position-x: 55%;
+  color: hsla(34,28%,31%,1);
+  padding: 10px;
+  font-family: 'Cinzel', serif;
+  text-shadow: 1px 1px 7px rgba(62, 56, 43, 0.12);
+  font-weight:normal;
+}
+
+.flex-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.btn {
+  background: #802822;
+  border-radius: 4px;
+  color: #F7F2F3;
+  font-size: 16px;
+  padding: 5px 20px;
+  border: solid #1f628d 1px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #546066;
+  text-decoration: none;
+}
+
+.box {
+  background: rgba(29, 25, 25, 0.94);
+  padding: 20px;
+  color: #C7C1A9;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+  border-radius: 6px;
+  max-width: 635px
+}
+
+.box-item {
+  
+}
+
+.blur {
+  width: 100%;
+  height: 200px;
+  background: #1D1919;
+  -webkit-filter: blur(13px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+
+input {
+   border-top: solid 0px #800000;
+   border-right: solid 0px #800000;
+   border-bottom: solid 2px hsl(34, 16%, 46%);
+   border-left: solid 0px #800000;
+   font-size: 23px;
+   background-color: rgba(79, 75, 75, 0);
+   color: hsla(30,25%,80%,1);
+   text-align: center;
+   font-family: 'Cinzel', serif;
+}
+
+input:hover  {
+   border-top: solid 0px #00A6FF;
+   border-right: solid 0px #00A6FF;
+   border-bottom: solid 2px #00A6FF;
+   border-left: solid 0px #00A6FF;
+}
+
+input:focus  {
+   border-top: solid 0px #0E89F5;
+   border-right: solid 0px #0E89F5;
+   border-bottom: solid 2px #0E89F5;
+   border-left: solid 0px #0E89F5;
+   box-shadow: inset 0px 1px 2px 0px #9C9C9C;
+   border: 0px;
+   background-color: #652523;
+}
+
+input:active  {
+   border: solid 2px #0043EB;
+  }
+
+h1 {
+  font-size: 8.9vw;
+  background: linear-gradient(330deg, #4A1717 0%, #570C13 25%, #F6CD9A 50%, #5E1318 75%, #5E2420 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 15vw;
+  margin-top: 2em;
+}
+
+label {
+  font-size: x-large;
+}
