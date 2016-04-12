@@ -12,12 +12,13 @@ body {
   font-family: 'Cinzel', serif;
   text-shadow: 1px 1px 7px rgba(62, 56, 43, 0.12);
   font-weight:normal;
+  line-height: .8;
 }
 
 .flex-container {
   padding: 0;
   margin: 0;
-  margin-top: 8vw;
+  margin-top: 4vw;
   list-style: none;
   display: -webkit-box;
   display: -moz-box;
@@ -56,24 +57,26 @@ body {
 
 .box {
   background: rgba(29, 25, 25, 0.94);
-  padding: 20px;
+  padding: 25px;
   color: #C7C1A9;
   font-weight: bold;
   font-size: 3em;
   text-align: center;
   border-radius: 6px;
-  max-width: 635px
+  max-width: 635px;
+  line-height: 1.2;
 }
 
 .box2 {
   background: rgba(29, 25, 25, 0.94);
-  padding: 60px;
+  padding: 25px;
   color: #C7C1A9;
   font-weight: bold;
   font-size: 3em;
   text-align: center;
   border-radius: 6px;
-  max-width: 635px
+  max-width: 635px;
+  line-height: 1.2;
 }
 
 .box2 h3 {
