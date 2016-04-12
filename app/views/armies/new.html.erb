@@ -21,10 +21,13 @@
         <%= f.label :knights %>
         <%= f.number_field :knights, in: 1..500, step: 1 %>
       </div>
+      </br>
       <div class='box-item'>
         <%= f.submit 'Save Army', class: 'btn' %>
       </div>
+      </br>
     <% end %>
+    <div class='box-item'>
     <%= link_to "New Battle", root_path, class: "btn-big" %>
   </div>
 </div>

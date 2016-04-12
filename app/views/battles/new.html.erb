@@ -6,8 +6,10 @@
         <%= f.collection_select :army_a, Army.all, :id, :name, :prompt => 'Select One' %>
         <%= f.collection_select :army_b, Army.all, :id, :name, :prompt => 'Select One' %>
       </div>
+      </br>
       <%= f.submit "Battle!", class: "btn-big" %>
     <% end %>
+    </br>
     <%= link_to "New Army", new_army_path, class: "btn" %>
   </div>
 </div>  
