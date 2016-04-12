@@ -1,7 +1,13 @@
-<h1>Battles</h1>
-<%= form_for @battle do |f| %>
-  <%= f.collection_select :army_a, Army.all, :id, :name, :prompt => 'Select One' %>
-  <%= f.collection_select :army_b, Army.all, :id, :name, :prompt => 'Select One' %>
-  <%= f.submit %>
-<% end %>
-<%= link_to "New Army", new_army_path, class: "btn" %>
+<div class="flex-container">  
+  <h1>New Battle</h1>
+  <div class='box'>
+    <%= form_for @battle do |f| %>
+      <div class='box-item'>
+        <%= f.collection_select :army_a, Army.all, :id, :name, :prompt => 'Select One' %>
+        <%= f.collection_select :army_b, Army.all, :id, :name, :prompt => 'Select One' %>
+      </div>
+      <%= f.submit "Battle!", class: "btn-big" %>
+    <% end %>
+    <%= link_to "New Army", new_army_path, class: "btn" %>
+  </div>
+</div>  

@@ -1,5 +1,5 @@
 <div class="flex-container">
-  <h1>Create a New Army</h1> 
+  <h1>New Army</h1> 
   <div class="box">
     <%= form_for Army.new do |f| %>
       <div class='box-item'>
@@ -20,8 +20,8 @@
       </div>
       <div class='box-item'>
         <%= f.submit 'Save and Create New Army', class: 'btn' %>
-        <%= link_to "New Battle", root_path, class: "btn" %>
       </div>
     <% end %>
+    <%= link_to "New Battle", root_path, class: "btn-big" %>
   </div>
 </div>
