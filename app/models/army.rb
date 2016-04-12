@@ -3,11 +3,37 @@ class Army < ActiveRecord::Base
   belongs_to :battle
   after_create :build_army!
 
+  def archers_remaining
+    soldiers_remaining.where(type: "Archer").count
+  end
+
+  def knights_remaining
+    soldiers_remaining.where(type: "Knight").count
+  end
+
+  def infantry_remaining
+    soldiers_remaining.where(type: "FootSoldier").count
+  end
+
   def army_attack(target)
     return if soldiers_remaining.nil? or target.nil?
     soldiers_remaining.sample.attack(target)
   end
 
+  def damage_percentage
+    health_data = []
+    soldiers_remaining.each {|soldier| health_data << soldier.health}
+    health_total = health_data.inject(0){|sum,x| sum + x }
+    damage = (soldiers.count * 100) - health_total 
+    ((p damage.to_f / (soldiers.count * 100)) * 100.0).to_i
+  end
+
+  def details
+    "#{name} army remained with:"
+    "#{infantry} Infantry Units"
+    "#{archers} Archers"
+    "#{knights} Knights"
+  end
 
   def build_army!
     infantry.times do
@@ -41,6 +67,9 @@ class Army < ActiveRecord::Base
       )
     end
 
+  end
+
+  def percent(a, b)
   end
 
   def soldier_count
