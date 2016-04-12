@@ -4,7 +4,7 @@
     <%= form_for Army.new do |f| %>
       <div class='box-item'>
         <%= f.label :name %>
-        <%= f.text_field :name %>
+        <%= f.text_field :name, style: "max-width: 80%" %>
       </div>
       <div class='box-item'>
         <%= f.label :infantry %>
@@ -19,7 +19,7 @@
         <%= f.number_field :knights, in: 1..500, step: 1 %>
       </div>
       <div class='box-item'>
-        <%= f.submit 'Save and Create New Army', class: 'btn' %>
+        <%= f.submit 'Save Army', class: 'btn' %>
       </div>
     <% end %>
     <%= link_to "New Battle", root_path, class: "btn-big" %>
