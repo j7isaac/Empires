@@ -3,11 +3,11 @@ class Battle < ActiveRecord::Base
   after_create :initiate_battle!
 
   def a_army
-    Army.where(id: army_a).last
+    Army.find(army_a)
   end
 
   def b_army
-    Army.where(id: army_b).last
+    Army.find(army_b)
   end
 
   def initiate_battle!
