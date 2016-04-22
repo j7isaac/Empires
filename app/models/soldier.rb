@@ -2,8 +2,8 @@ class Soldier < ActiveRecord::Base
   belongs_to :army
   def attack(target)
     enemy = target.sample
-    attack_result = attack_damage - (enemy.defense + enemy.lucky_number) + lucky_number
-    deal_damage(enemy, attack_result) if attack_result > 0
+    result = attack_damage - (enemy.defense + enemy.lucky_number) + lucky_number
+    deal_damage(enemy, result) if attack_result > 0
   end
 
   def deal_damage(target, value)
@@ -13,5 +13,5 @@ class Soldier < ActiveRecord::Base
 
   def lucky_number
     (1..luck).to_a.sample
-  end 
+  end
 end
