@@ -1,5 +1,4 @@
 class BattlesController < ApplicationController
-
   helper_method :battle
 
   def new
