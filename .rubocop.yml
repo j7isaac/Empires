@@ -1,2 +1,10 @@
+AllCops:
+  Exclude:
+    - db/**/*
+    - config/**/*
+    - config.ru
+    - Rakefile
+    - bin/rails
+
 Documentation:
   Enabled: false
