@@ -1,5 +1,4 @@
 class ArmiesController < ApplicationController
-  
   helper_method :army
 
   def new
@@ -9,7 +8,7 @@ class ArmiesController < ApplicationController
   def create
     @army = Army.create(army_params)
     redirect_to new_army_path
-    flash[:notice] = "army successfully saved"
+    flash[:notice] = 'army successfully saved'
   end
 
   def show
@@ -18,13 +17,17 @@ class ArmiesController < ApplicationController
 
   private
 
-
   def battle
     @army ||= Army.where(id: params[:id]).last
   end
 
   def army_params
-    params.require(:army).permit(:name, :infantry, :archers, :knights, :spending_balance)
+    params.require(:army).permit(
+      :name,
+      :infantry,
+      :archers,
+      :knights,
+      :spending_balance
+    )
   end
-
 end
