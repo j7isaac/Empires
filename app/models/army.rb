@@ -3,68 +3,84 @@ class Army < ActiveRecord::Base
   belongs_to :battle
   after_create :build_army!
 
+  def build_army!
+    infantry.times do
+      create_infantry
+    end
+    archers.times do
+      create_archer
+    end
+    knights.times do
+      create_knight
+    end
+  end
+
   def archers_remaining
-    soldiers_remaining.where(type: "Archer").count
+    soldiers_remaining.where(type: 'Archer').count
   end
 
   def knights_remaining
-    soldiers_remaining.where(type: "Knight").count
+    soldiers_remaining.where(type: 'Knight').count
   end
 
   def infantry_remaining
-    soldiers_remaining.where(type: "FootSoldier").count
+    soldiers_remaining.where(type: 'FootSoldier').count
   end
 
-  def army_attack(target)
-    unless soldiers_remaining.empty? or target.empty?
+  def attack(target)
+    unless soldiers_remaining.empty? || target.empty?
       soldiers_remaining.sample.attack(target)
     end
   end
 
   def damage_percentage
-    health_data = []
-    soldiers_remaining.each {|soldier| health_data << soldier.health}
-    health_total = health_data.inject(0){|sum,x| sum + x }
-    damage = (soldiers.count * 100) - health_total 
-    ((p damage.to_f / (soldiers.count * 100)) * 100.0).to_i
+    damage = soldiers.count * 100 - health_total
+    to_percent(damage, (soldiers.count * 100))
   end
 
-  def build_army!
-    infantry.times do
-      FootSoldier.create(
-        army_id:       id,
-        cost:          15,
-        health:       100,
-        attack_damage: 75,
-        defense:       40,
-        luck:          15
-      )
-    end
-    archers.times do
-      Archer.create(
-        army_id:       id,
-        cost:          60,
-        health:       100,
-        attack_damage: 40,
-        defense:       20,
-        luck:          50
-      )
-    end
-    knights.times do
-      Knight.create(
-        army_id:       id,
-        cost:         250,
-        health:       100,
-        attack_damage:100,
-        defense:       60,
-        luck:          40
-      )
-    end
+  def health_total
+    soldiers_remaining.map(&:health).inject(0) { |a, e| a + e }
+  end
 
+  def to_percent(a, b)
+    (a.to_f / b.to_f * 100).to_s + '%'
+  end
+
+  def create_infantry
+    FootSoldier.create(
+      army_id:        id,
+      cost:           15,
+      health:        100,
+      attack_damage:  75,
+      defense:        40,
+      luck:           15
+    )
+  end
+
+  def create_archer
+    Archer.create(
+      army_id:        id,
+      cost:           60,
+      health:        100,
+      attack_damage:  40,
+      defense:        20,
+      luck:           50
+    )
+  end
+
+  def create_knight
+    Knight.create(
+      army_id:        id,
+      cost:          250,
+      health:        100,
+      attack_damage: 100,
+      defense:        60,
+      luck:           40
+    )
   end
 
   def reset_health
-    soldiers.each {|soldier| soldier.update_attributes(health: 100)}
+    soldiers.each { |soldier| soldier.update_attributes(health: 100) }
   end
 
   def soldier_count
@@ -74,5 +90,4 @@ class Army < ActiveRecord::Base
   def soldiers_remaining
     soldiers.where("health > '0'")
   end
-
 end

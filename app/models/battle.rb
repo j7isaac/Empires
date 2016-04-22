@@ -3,8 +3,8 @@ class Battle < ActiveRecord::Base
   after_create :initiate_battle!
 
   def make_attacks
-    a_army.army_attack(b_army.soldiers_remaining)
-    b_army.army_attack(a_army.soldiers_remaining)
+    a_army.attack(b_army.soldiers_remaining)
+    b_army.attack(a_army.soldiers_remaining)
   end
 
   def a_army
