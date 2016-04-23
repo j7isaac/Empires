@@ -3,7 +3,7 @@ class Soldier < ActiveRecord::Base
   def attack(target)
     enemy = target.sample
     result = attack_damage - (enemy.defense + enemy.lucky_number) + lucky_number
-    deal_damage(enemy, result) if attack_result > 0
+    deal_damage(enemy, result) if result > 0
   end
 
   def deal_damage(target, value)
