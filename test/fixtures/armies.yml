@@ -8,13 +8,10 @@ one:
   infantry: 4
   archers: 2
   knights: 3
-  spending_balance: 100000
-  name: "example1"
 
 two:
   infantry: 30
   archers: 40
   knights: 50
-  spending_balance: 100000
-  name: "example2"
+
 
