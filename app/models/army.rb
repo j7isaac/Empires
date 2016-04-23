@@ -35,15 +35,15 @@ class Army < ActiveRecord::Base
 
   def damage_percentage
     damage = soldiers.count * 100 - health_total
-    to_percent(damage, (soldiers.count * 100))
+    fraction_to_percent(damage, (soldiers.count * 100))
   end
 
   def health_total
     soldiers_remaining.map(&:health).inject(0) { |a, e| a + e }
   end
 
-  def to_percent(a, b)
-    (a.to_f / b.to_f * 100).to_s + '%'
+  def fraction_to_percent(a, b)
+    (a.to_f / b.to_f * 100).round(2).to_s + '%'
   end
 
   def create_infantry

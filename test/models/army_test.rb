@@ -3,7 +3,9 @@ require 'test_helper'
 class ArmyTest < ActiveSupport::TestCase
   def setup
     @army1 = armies(:one)
+    @army2 = armies(:two)
     @army1.build_army!
+    @army2.build_army!
   end
 
   test 'shoud build the appropriate number of soldiers' do
@@ -22,13 +24,15 @@ class ArmyTest < ActiveSupport::TestCase
   end
 
   test 'should verify the correct percentage' do
-    assert_equal '38%', @army1.to_percent(3.753, 10)
-    assert_equal '79%', @army1.to_percent(7.893, 10)
-    assert_equal '13%', @army1.to_percent(1.289, 10)
+    assert_equal '37.53%', @army1.fraction_to_percent(3.753, 10)
+    assert_equal '78.93%', @army1.fraction_to_percent(7.893, 10)
+    assert_equal '12.89%', @army1.fraction_to_percent(1.289, 10)
   end
 
   test 'should verify the correct damage percentage sustained' do
-    2.times { @army1.soldiers.sample.update_attributes(health: 0) }
-    p @army1.damage_percentage
+    Knight.where(army_id: @army1.id).each { |s| s.update_attributes(health: 0) }
+    Knight.where(army_id: @army2.id).each { |s| s.update_attributes(health: 0) }
+    assert_equal '33.33%', @army1.damage_percentage
+    assert_equal '41.67%', @army2.damage_percentage
   end
 end
